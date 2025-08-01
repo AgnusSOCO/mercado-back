@@ -22,6 +22,8 @@ from src.models.bank_credential import BankCredential
 from src.routes.auth import auth_bp
 from src.routes.clients import clients_bp
 from src.routes.admin import admin_bp
+from src.routes.banks import banks_bp
+
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 
@@ -57,6 +59,7 @@ jwt = JWTManager(app)
 app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(clients_bp, url_prefix='/api/clients')
 app.register_blueprint(admin_bp, url_prefix='/api/admin')
+app.register_blueprint(banks_bp, url_prefix='/api/banks')
 
 # Initialize database
 with app.app_context():
